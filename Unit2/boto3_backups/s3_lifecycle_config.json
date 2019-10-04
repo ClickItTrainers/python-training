@@ -1,0 +1,21 @@
+{
+    "Rules": [
+      {
+        "ID": "TarGz",
+        "Prefix": "",
+        "Status": "Enabled",
+        "Transitions": [{
+          "Days": 5,
+          "StorageClass": "GLACIER"
+        }]
+      },
+      {
+        "Expiration": {
+            "Days": 7
+        },
+        "ID": "Targz",
+        "Prefix": "backups/",
+        "Status": "Enabled"
+      }
+    ]
+  }
