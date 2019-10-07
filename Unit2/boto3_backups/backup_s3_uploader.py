@@ -15,11 +15,11 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-bucket_name = 'wiki-documentation'
-bucket_path = 'backups'
-filename_path = '/Users/damien/app.log'
+bucket_name = os.getenv('BUCKET_NAME', 'wiki-documentation')
+bucket_path = os.getenv('BUCKET_PATH', 'backups')
+filename_path = os.getenv('FILENAME_PATH', '/Users/damien/app.log')
 lifeclycle_policy = json.load(open(CONFIG_FILE_PATH))
-tarfile_name = 'app.tar.gz'
+tarfile_name = os.getenv('TARFILE_NAME', 'app.tar.gz')
 
 def make_backup() -> MakeBackups:
     """Returns the backup path"""
