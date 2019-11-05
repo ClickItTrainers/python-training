@@ -51,7 +51,7 @@ const Page = (props) => (
         <React.Fragment>
             <GlobalStyle />
             <StyledPage>
-                <Header />
+                <Header {...props} />
                 <Inner>
                     {props.children}
                 </Inner>

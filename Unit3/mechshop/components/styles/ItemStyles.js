@@ -10,14 +10,15 @@ const Item = styled.div`
     flex-direction: column;
     img {
         width: 100%;
-        height: 200px;
+        height: 166px;
         object-fit: cover;
-        padding: 1rem;
+        padding: 5px;
         border-radius: 4px;
     }
     h3 {
-        font-size: 24px;
+        font-size: 18px;
         line-height: 2;
+        margin: 0;
     }
     p {
         font-size: 12px;
@@ -25,6 +26,8 @@ const Item = styled.div`
         font-weight: 300;
         flex-grow: 1;
         padding: 0 3rem;
+        margin-top: 5px;
+        margin-bottom: 0;
     }
 `;
 

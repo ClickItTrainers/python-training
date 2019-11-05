@@ -7,6 +7,10 @@ export function storeToken(token) {
     return token;
 }
 
+export function getToken() {
+    return cookie.get('_mechshop_token_')
+}
+
 export const authenticate = ctx => {
     const { _mechshop_token_ } = nextCookie(ctx);
 
@@ -36,7 +40,10 @@ export const withAuth = WrappedComponent => {
             WrappedComponent.getInitialProps &&
             (await WrappedComponent.getInitialProps(ctx));
 
-        return { ...componentProps, token };
+        return { 
+            ...componentProps,
+            user: { token }
+        };
     }
 
     return Wrapper;

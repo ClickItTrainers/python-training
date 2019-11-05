@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import Nav from './Nav';
+import AuthNav from './AuthNav';
 
 const StyledHeader = styled.header`
     .bar {
@@ -34,7 +35,7 @@ const Logo = styled.h1`
     }
 `;
 
-const Header = () => (
+const Header = ({ user }) => (
     <StyledHeader>
         <div className="bar">
             <Logo>
@@ -42,7 +43,12 @@ const Header = () => (
                     <a>_MECHSHOP_</a>
                 </Link>
             </Logo>
-            <Nav/>
+            { 
+                user && <AuthNav />
+            }
+            {
+                !user && <Nav/>
+            }
         </div>
     </StyledHeader>
 );

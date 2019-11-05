@@ -77,10 +77,10 @@ functions:
   signup:
     handler: signup.handler
     events:
-        - http:
-            path: signup
-            method: POST
-            cors: true
+      - http:
+          path: signup
+          method: POST
+          cors: true
   signin:
     handler: signin.handler
     events:
@@ -88,6 +88,16 @@ functions:
           path: signin
           method: POST
           cors: true
+  auth:
+    handler: authorizer.handler
+  items:
+    handler: items.handler
+    events:
+      - http:
+          path: items
+          method: ANY
+          cors: true
+          authorizer: auth
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -135,6 +145,19 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: 'users_mechshop_api'
+        AttributeDefinitions:
+          - AttributeName: 'id'
+            AttributeType: 'S'
+        KeySchema:
+          - AttributeName: 'id'
+            KeyType: 'HASH'
+        ProvisionedThroughput:
+          ReadCapacityUnits : 5
+          WriteCapacityUnits : 5
+    ItemsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: 'items_mechshop_api'
         AttributeDefinitions:
           - AttributeName: 'id'
             AttributeType: 'S'

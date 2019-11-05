@@ -18,7 +18,7 @@ class MyApp extends App {
 
         return (
             <Container>
-                <Page>
+                <Page {...pageProps}>
                     <Component {...pageProps}/>
                 </Page>
             </Container>

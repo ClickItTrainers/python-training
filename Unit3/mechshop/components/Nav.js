@@ -4,10 +4,7 @@ import Link from 'next/link';
 function Nav(props) {
     return (
         <NavStyles>
-            <Link href="/sell">
-                <a>Sell</a>
-            </Link>
-            <Link href="/signup">
+            <Link href="/login">
                 <a>Sign In</a>
             </Link>
             <Link href="/signup">

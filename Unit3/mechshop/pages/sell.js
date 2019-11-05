@@ -33,10 +33,10 @@ export default function Sell(props) {
             body: state
         })
         .then(({ payload }) => {
-            /*router.push({
+            router.push({
                 pathname: '/item',
                 query: { id: payload.itemId }
-            });*/
+            });
         })
     }
 
